@@ -2,13 +2,10 @@ import React from "react";
 import { View, Text, Image, Button } from "react-native";
 import CustomButton from "../button";
 
-const MovieCard = ({ title,posterPath,popularity,releaseDate,navigation }) => {
-
+const MovieCard = ({ title,posterPath,popularity,releaseDate,navigation,id,type}) => {
+  // console.log('id',id)
     const showMore = () => {
-        navigation.navigate('MovieDetails', {
-          title
-          
-        });
+      navigation.navigate('Movie Details',{id:id,title:title,type:type});
     }
   return (
     <View
@@ -37,7 +34,7 @@ const MovieCard = ({ title,posterPath,popularity,releaseDate,navigation }) => {
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>{title}</Text>
         <Text style={{ fontSize: 15, fontWeight: "normal" }}>Popularity: {popularity}</Text>
         <Text style={{ fontSize: 15, fontWeight: "normal" }}>Release Date: {releaseDate}</Text>
-        <CustomButton title="Show More" onPress={showMore} buttonStyle={{marginTop:5}}/>
+        <CustomButton title="Show More" onPress={showMore} buttonStyle={{marginTop:5,backgroundColor: '#007bff',width:'100%'}}/>
       </View>
     </View>
   );

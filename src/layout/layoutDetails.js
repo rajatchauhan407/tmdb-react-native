@@ -6,9 +6,9 @@ const LayoutDetails = props =>{
         display:'flex',
         flex:1,
         backgroundColor:'#fff',
-        flexDirection:'column'
+        flexDirection:'column',
     }}>
-        <Header title={'Movies Details'}/>
+        <Header back={true} title={props.headerTitle}/>
         {props.children}
     </View>)
 }

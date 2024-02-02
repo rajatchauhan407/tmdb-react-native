@@ -3,4 +3,5 @@ export const Routes = {
     Search: 'Search Results',
     Details: 'Movie Details',
     TV: 'TV Shows',
+    Tabs:'Tabs'
 }

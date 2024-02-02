@@ -4,7 +4,7 @@ import {Picker} from '@react-native-picker/picker';
 import useFetch from '../hooks/useFetch';
 import {keys} from '../config/keys';
 import MovieCard from '../components/movie-card';
-const TvShows = () => {
+const TvShows = ({navigation}) => {
     const [tvItem, setTvItem] = useState('popular');
     const [url, setUrl] = useState(`https://api.themoviedb.org/3/tv/${tvItem}`);
     const { data, isLoading, error, fetchData } = useFetch(url, 'GET', {
@@ -64,6 +64,9 @@ const TvShows = () => {
                     posterPath={item.poster_path}
                     popularity={item.popularity}
                     releaseDate={item.release_date || item.first_air_date}
+                    type="tv"
+                    navigation={navigation}
+                    id={item.id}
                 />}
                 keyExtractor={item => item.id}
             />

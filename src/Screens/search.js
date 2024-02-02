@@ -5,7 +5,7 @@ import CustomButton from '../components/button';
 import MovieCard from '../components/movie-card';
 import useFetch from '../hooks/useFetch';
 import {keys} from '../config/keys';
-const Search = () => {
+const Search = ({navigation}) => {
     const [searchText, setSearchText] = useState('');
     const [type, setType] = useState('movie');
     const [url, setUrl] = useState(`https://api.themoviedb.org/3/search/${type}?query=${searchText}`);
@@ -51,7 +51,7 @@ const Search = () => {
                 <CustomButton 
                     title="Search" 
                     onPress={search}
-                    
+                    buttonStyle={{backgroundColor:'#095BB1',borderRadius:5}}
                     />
             </View>
                 
@@ -88,6 +88,9 @@ const Search = () => {
                 posterPath={item.poster_path}
                 popularity={item.popularity}
                 releaseDate={item.release_date || item.first_air_date}
+                id = {item.id }
+                type={type }
+                navigation={navigation}
             />}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={true}

@@ -89,8 +89,12 @@ const Movie = props =>{
             posterPath={item.poster_path}
             popularity={item.popularity}
             releaseDate={item.release_date}
+            navigation={props.navigation}
+            id = {item.id}
+            type="movie"
             />}
             keyExtractor={item => item.id}
+           
         />
     </View>
 
